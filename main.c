@@ -14,7 +14,7 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
     // Check if major version is at least iReqWinsockVer
     if (LOBYTE(wsaData.wVersion) >= iReqWinsockVer)
     {
-        printf("Launched\n")
+        printf("Launched\n");
     }
     else
     {
