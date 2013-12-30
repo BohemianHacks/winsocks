@@ -33,7 +33,7 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
                 
             }else{
                 
-                FILE* commText = popen("dir","r");
+                FILE* commText = _popen("dir","r");
                 if (commText != NULL){
                     while(fgets(MSG, sizeof(MSG), commText) != NULL){
                         
@@ -46,7 +46,7 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
                 }else{
                     
                 }
-                pclose(commText);
+                _pclose(commText);
             }
             
             closesocket(hSocket);
