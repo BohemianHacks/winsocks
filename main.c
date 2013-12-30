@@ -36,6 +36,7 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
                 FILE* commText = popen("dir","r");
                 if (commText != NULL){
                     char* lineP = fgets(MSG, sizeof(MSG), commText);
+                    printf("sizeof:%d strlen:%d",sizeof(MSG),strlen(MSG))
                     if (send(hSocket, MSG, strlen(MSG), 0) == SOCKET_ERROR){
                         printf("Could not send\n");
                     }else{
