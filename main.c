@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <winsock.h>
 
-int main(int argc, char**argv){
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow){
 const int iReqWinsockVer = 2;   // Minimum winsock version required
 
 WSADATA wsaData;
