@@ -35,7 +35,7 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
                 if (send(hSocket, MSG, sizeof(MSG), 0) == SOCKET_ERROR){
                     printf("Could not send\n");
                 }else{
-                    printf("Data sent!\n")
+                    printf("Data sent!\n");
                 }
             }
             
