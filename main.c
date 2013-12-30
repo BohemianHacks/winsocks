@@ -17,7 +17,7 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
     {
         hSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
         if (hSocket==INVALID_SOCKET){
-            printf("Socket failed\n")
+            printf("Socket failed\n");
         }
         else{
             printf("Socket Launched\n");
