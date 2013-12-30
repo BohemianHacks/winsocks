@@ -2,19 +2,12 @@
 #include <windows.h>
 #include <winsock.h>
 
-struct sockaddr_in
-{
-    short   sin_family;
-    u_short sin_port;
-    struct  in_addr sin_addr;
-    char    sin_zero[8];
-};
-
 int main(int argc, char**argv){
 const int iReqWinsockVer = 2;   // Minimum winsock version required
 
 WSADATA wsaData;
 SOCKET hSocket;
+SOCKADDR_IN sockAddr;
 
 if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
 {
@@ -27,8 +20,6 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
         }
         else{
             printf("Socket Launched\n");
-            
-            sockaddr_in sockAddr;
             
             sockAddr.sin_family = AF_INET;
 
