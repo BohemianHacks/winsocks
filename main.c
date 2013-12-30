@@ -20,13 +20,28 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
             printf("Socket failed\n")
         }
         else{
-            prinf("Socket Launched\n")
+            printf("Socket Launched\n");
+            
+            sockaddr_in sockAddr;
+            
+            sockAddr.sin_family = AF_INET;
+
+            sockAddr.sin_port = htons(5499);
+
+            sockAddr.sin_addr.S_un.S_addr = inet_addr("80.112.129.129");
+            
+            if (connect(hSocket, (sockaddr*)(&sockAddr), sizeof(sockAddr))!=0){
+                printf("Could not connect.\n");
+            }else{
+                printf("Connected!\n");
+            }
+            
             closesocket(hSocket);
         }
     }
     else
     {
-        printf("Required version not available");
+        printf("Required version not available\n");
     }
 
     // Cleanup winsock
