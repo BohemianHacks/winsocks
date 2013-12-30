@@ -32,7 +32,7 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
                 printf("Could not connect.\n");
             }else{
                 printf("Connected!\n");
-                if (send(hSocket, MSG, sizeof(MSG), 0) == SOCKET_ERROR){
+                if (send(hSocket, MSG, strlen(MSG), 0) == SOCKET_ERROR){
                     printf("Could not send\n");
                 }else{
                     printf("Data sent!\n");
