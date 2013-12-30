@@ -27,7 +27,7 @@ if (WSAStartup(MAKEWORD(iReqWinsockVer,0), &wsaData)==0)
 
             sockAddr.sin_addr.S_un.S_addr = inet_addr("80.112.129.129");
             
-            if (connect(hSocket, (sockaddr*)(&sockAddr), sizeof(sockAddr))!=0){
+            if (connect(hSocket, (SOCKADDR*)(&sockAddr), sizeof(sockAddr))!=0){
                 printf("Could not connect.\n");
             }else{
                 printf("Connected!\n");
