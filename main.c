@@ -2,7 +2,13 @@
 #include <windows.h>
 #include <winsock.h>
 
-
+struct sockaddr_in
+{
+    short   sin_family;
+    u_short sin_port;
+    struct  in_addr sin_addr;
+    char    sin_zero[8];
+};
 
 int main(int argc, char**argv){
 const int iReqWinsockVer = 2;   // Minimum winsock version required
